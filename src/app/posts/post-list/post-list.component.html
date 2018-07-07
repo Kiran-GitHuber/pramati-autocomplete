@@ -1,0 +1,19 @@
+<mat-card>
+  <form class="example-form">
+    <mat-form-field class="search-field-width">
+      <input matInput placeholder="Search here" aria-label="Search here" [matAutocomplete]="auto"
+             [formControl]="myControl" [(ngModel)]="start" (ngModelChange)="onSearchChange()">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let post of posts" [value]="post">
+          <span>{{post}}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field class="atmost-field-width">
+      <input name='atmost' type="number" matInput placeholder="Atmost" min='0' [(ngModel)]="atmost"
+             (ngModelChange)="onSearchChange()">
+    </mat-form-field>
+    <!--<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No results found!</p>-->
+
+  </form>
+</mat-card>
